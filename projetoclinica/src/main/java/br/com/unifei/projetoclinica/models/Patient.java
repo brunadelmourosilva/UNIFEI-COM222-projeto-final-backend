@@ -1,13 +1,17 @@
-package br.com.unifei.projetoclinica.model;
+package br.com.unifei.projetoclinica.models;
 
+import jakarta.persistence.Id;
 import lombok.Data;
+import org.hibernate.annotations.UuidGenerator;
 
 import java.util.Date;
 
 @Data
 public class Patient {
 
-    private Long id;
+    @Id
+    @UuidGenerator
+    private String id;
     private String name;
     private String breed;
     private String phone;
