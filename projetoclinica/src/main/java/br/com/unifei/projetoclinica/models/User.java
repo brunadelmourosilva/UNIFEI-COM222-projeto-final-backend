@@ -5,10 +5,12 @@ import lombok.Data;
 import org.hibernate.annotations.UuidGenerator;
 
 @Data
-@Table(name = "USER")
+@Entity
+@Table(name = "USERS")
 public class User {
 
     //@Column todo for all classes
+    @Column(name = "USER_ID")
     @Id
     @UuidGenerator
     private String id;
@@ -20,5 +22,5 @@ public class User {
 
     @ManyToOne
     @JoinColumn(name = "CLINIC_ID")
-    private Clinic clinic; //// TODO: 11/2/2023 terminar
+    private Clinic clinic; //// TODO: 11/2/2023 terminar outros relacionamentos
 }

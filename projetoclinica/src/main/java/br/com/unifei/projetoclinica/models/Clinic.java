@@ -1,19 +1,17 @@
 package br.com.unifei.projetoclinica.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.UuidGenerator;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
+@Entity
 @Table(name = "CLINIC")
 public class Clinic {
 
-    @Column(name = "CLINIC_ID")
     @Id
     @UuidGenerator
     private String id;
@@ -22,5 +20,5 @@ public class Clinic {
     private String phone;
 
     @OneToMany(mappedBy = "clinic")
-    private List<User> users;
+    private List<User> users = new ArrayList<>();
 }
