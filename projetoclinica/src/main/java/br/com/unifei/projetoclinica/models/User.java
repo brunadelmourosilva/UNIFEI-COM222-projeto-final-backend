@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.UuidGenerator;
 
+import java.time.OffsetDateTime;
+
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -27,7 +29,7 @@ public class User {
     private String password;
 
     @Column(name = "CREATION_DATE")
-    private String creationDate; //// TODO: 11/2/2023
+    private OffsetDateTime creationDate = OffsetDateTime.now();
 
     //// TODO: 11/2/2023 role(clinic, vet, owner)?
 

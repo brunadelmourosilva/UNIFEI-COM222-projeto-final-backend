@@ -7,7 +7,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.UuidGenerator;
 
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Builder
 @AllArgsConstructor
@@ -35,7 +38,7 @@ public class Patient {
     private String phone;
 
     @Column(name = "DATE_OF_BIRTH")
-    private Date dateOfBirth;
+    private OffsetDateTime dateOfBirth;
 
     @Column(name = "ADDITIONAL_INFO")
     private String additionalInfo;
@@ -47,4 +50,10 @@ public class Patient {
     @ManyToOne
     @JoinColumn(name = "GUARDIAN_ID")
     private Guardian guardian;
+
+    @OneToMany(mappedBy = "patient")
+    private List<Scheduling> schedulings = new ArrayList<>();
+
+    @OneToMany(mappedBy = "patient")
+    private List<Consulting> consultings = new ArrayList<>();
 }

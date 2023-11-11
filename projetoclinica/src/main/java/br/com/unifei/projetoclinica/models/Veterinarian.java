@@ -7,6 +7,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.UuidGenerator;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -32,4 +35,10 @@ public class Veterinarian {
     @ManyToOne
     @JoinColumn(name = "CLINIC_ID")
     private Clinic clinic;
+
+    @OneToMany(mappedBy = "veterinarian")
+    private List<Scheduling> schedulings = new ArrayList<>();
+
+    @OneToMany(mappedBy = "veterinarian")
+    private List<Consulting> consultings = new ArrayList<>();
 }

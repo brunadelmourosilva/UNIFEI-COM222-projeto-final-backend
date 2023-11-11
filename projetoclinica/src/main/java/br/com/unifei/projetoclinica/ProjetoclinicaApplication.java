@@ -22,6 +22,10 @@ public class ProjetoclinicaApplication implements CommandLineRunner {
 
   @Autowired GuardianRepository guardianRepository;
 
+  @Autowired SchedulingRepository schedulingRepository;
+
+  @Autowired ConsultingRepository consultingRepository;
+
   public static void main(String[] args) {
     SpringApplication.run(ProjetoclinicaApplication.class, args);
   }
@@ -57,6 +61,7 @@ public class ProjetoclinicaApplication implements CommandLineRunner {
     guardianRepository.save(guardian);
 
     // ----------------------
+
     Patient patient =
         Patient.builder()
             .name("Spike")
@@ -67,5 +72,19 @@ public class ProjetoclinicaApplication implements CommandLineRunner {
             .build();
 
     patientRepository.save(patient);
+
+    // ----------------------
+
+    Scheduling scheduling =
+        Scheduling.builder().patient(patient).veterinarian(veterinarian).build();
+
+    schedulingRepository.save(scheduling);
+
+    // ----------------------
+
+    Consulting consulting =
+        Consulting.builder().patient(patient).veterinarian(veterinarian).build();
+
+    consultingRepository.save(consulting);
   }
 }
