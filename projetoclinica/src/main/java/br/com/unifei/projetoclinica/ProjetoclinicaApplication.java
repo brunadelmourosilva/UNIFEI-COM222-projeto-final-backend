@@ -77,7 +77,11 @@ public class ProjetoclinicaApplication implements CommandLineRunner {
     // ----------------------
 
     Scheduling scheduling =
-        Scheduling.builder().status(SchedulingStatus.PENDENTE).patient(patient).veterinarian(veterinarian).build();
+        Scheduling.builder()
+            .status(SchedulingStatus.PENDENTE)
+            .patient(patient)
+            .veterinarian(veterinarian)
+            .build();
 
     schedulingRepository.save(scheduling);
 
