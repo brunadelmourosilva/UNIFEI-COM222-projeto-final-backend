@@ -2,7 +2,7 @@
 
 ---
 
-BACK-END
+PLANEJAMENTO - BACK-END
 
 - criação e definição dos relacionamentos entre as entidades;
 - definição das rotas para o front-end(endpoints);
