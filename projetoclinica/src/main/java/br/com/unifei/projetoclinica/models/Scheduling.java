@@ -1,5 +1,6 @@
 package br.com.unifei.projetoclinica.models;
 
+import br.com.unifei.projetoclinica.enums.SchedulingStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,7 +27,8 @@ public class Scheduling {
     private OffsetDateTime appointmentDate;
 
     @Column(name = "STATUS")
-    private String status; //// TODO: 11/2/2023 enum
+    @Enumerated(EnumType.STRING)
+    private SchedulingStatus status;
 
     @ManyToOne
     @JoinColumn(name = "PATIENT_ID")

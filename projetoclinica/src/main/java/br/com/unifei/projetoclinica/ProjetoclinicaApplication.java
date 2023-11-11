@@ -1,5 +1,6 @@
 package br.com.unifei.projetoclinica;
 
+import br.com.unifei.projetoclinica.enums.SchedulingStatus;
 import br.com.unifei.projetoclinica.models.*;
 import br.com.unifei.projetoclinica.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,7 +77,7 @@ public class ProjetoclinicaApplication implements CommandLineRunner {
     // ----------------------
 
     Scheduling scheduling =
-        Scheduling.builder().patient(patient).veterinarian(veterinarian).build();
+        Scheduling.builder().status(SchedulingStatus.PENDENTE).patient(patient).veterinarian(veterinarian).build();
 
     schedulingRepository.save(scheduling);
 
