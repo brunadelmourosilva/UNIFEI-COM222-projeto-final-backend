@@ -33,12 +33,12 @@ public class ProjetoclinicaApplication implements CommandLineRunner {
 
   @Override
   public void run(String... args) throws Exception {
-    //// TODO: 11/11/2023 password
     Clinic clinic =
         Clinic.builder().name("UniVet").phone("359998751").address("Rua D. A. Chaves, 315").build();
 
     clinicRepository.save(clinic);
 
+    //// TODO: 11/11/2023 password
     User user = User.builder().name("Márcia").email("marcia@gmail.com").clinic(clinic).build();
 
     // relationship is bidirectional and JPA/Hibernate can manage the relationship based on the
