@@ -9,3 +9,14 @@ spring:
         driverClassName: org.h2.Driver
 jpa:
     spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+# https://www.appsdeveloperblog.com/document-spring-rest-api-with-openapi-3swagger/
+# https://springdoc.org/#swagger-ui-configuration
+# Specify the path of the OpenAPI documentation
+springdoc:
+    api-docs:
+        path: /api-docs
+    # Specify the path of the Swagger UI
+    # Enable or disable Swagger UI
+    swagger-ui:
+        path: /swagger-ui.html
+        enabled: true
