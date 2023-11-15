@@ -7,6 +7,7 @@ PLANEJAMENTO - BACK-END
 - OK criação e definição dos relacionamentos entre as entidades;
 - OK definição das rotas para o front-end(endpoints);
 - criação dos services(regras de negócio);
+  - patient flow: tratar recebimento da imagem;
 - criação da rota de criação do usuário(não autenticado);
 - criação da rota de login(não autenticado);
 - implementação de segurança das demais rotas(spring security)(user autenticado);
