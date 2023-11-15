@@ -1,11 +1,10 @@
 package br.com.unifei.projetoclinica.controllers;
 
-import br.com.unifei.projetoclinica.dto.request.ConsultingRequest;
 import java.util.List;
 
 import br.com.unifei.projetoclinica.dto.request.UserLoginRequest;
 import br.com.unifei.projetoclinica.dto.request.UserRequest;
-import br.com.unifei.projetoclinica.dto.request.UserUpdateRequest;
+import br.com.unifei.projetoclinica.dto.request.UpdateUserRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -29,7 +28,7 @@ public class UserController {
 
   @PutMapping("/{userId}")
   public ResponseEntity<Void> updateUser(
-      @PathVariable String userId, @RequestBody UserUpdateRequest userUpdateRequest) {
+      @PathVariable String userId, @RequestBody UpdateUserRequest userUpdateRequest) {
 
     return new ResponseEntity<>(HttpStatus.OK);
   }
