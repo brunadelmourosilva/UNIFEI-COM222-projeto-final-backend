@@ -33,13 +33,17 @@ public class ProjetoclinicaApplication implements CommandLineRunner {
 
   @Override
   public void run(String... args) throws Exception {
-    Clinic clinic =
+    //// TODO: 11/15/2023 add factory pattern
+    Clinic clinicOne =
         Clinic.builder().name("UniVet").phone("359998751").address("Rua D. A. Chaves, 315").build();
 
-    clinicRepository.save(clinic);
+    Clinic clinicTwo =
+        Clinic.builder().name("PetLover").address("Rua treze de maio").phone("9898932323").build();
+
+    clinicRepository.saveAll(List.of(clinicOne, clinicTwo));
 
     //// TODO: 11/11/2023 password
-    User user = User.builder().name("Márcia").email("marcia@gmail.com").clinic(clinic).build();
+    User user = User.builder().name("Márcia").email("marcia@gmail.com").clinic(clinicOne).build();
 
     // relationship is bidirectional and JPA/Hibernate can manage the relationship based on the
     // annotation
@@ -51,7 +55,7 @@ public class ProjetoclinicaApplication implements CommandLineRunner {
     // ----------------------
 
     Veterinarian veterinarian =
-        Veterinarian.builder().name("Júlia").specialty("Dogs").clinic(clinic).build();
+        Veterinarian.builder().name("Júlia").specialty("Dogs").clinic(clinicOne).build();
 
     veterinarianRepository.save(veterinarian);
 
@@ -68,7 +72,7 @@ public class ProjetoclinicaApplication implements CommandLineRunner {
             .name("Spike")
             .breed("Mixed")
             .imageUrl("S3_URL")
-            .clinic(clinic)
+            .clinic(clinicOne)
             .guardian(guardian)
             .build();
 

@@ -1,9 +1,9 @@
 package br.com.unifei.projetoclinica.controllers;
 
 import br.com.unifei.projetoclinica.dto.request.VeterinarianRequest;
-import java.util.List;
-
+import br.com.unifei.projetoclinica.dto.response.VeterinarianResponse;
 import br.com.unifei.projetoclinica.services.VeterinarianService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,10 +26,8 @@ public class VeterinarianController {
   }
 
   @GetMapping
-  public ResponseEntity<List<Object>> getAllVeterinarians() {
+  public ResponseEntity<List<VeterinarianResponse>> getAllVeterinarians() {
 
-    //// TODO: 11/14/2023 retornar vet e clinica
-
-    return new ResponseEntity<>(HttpStatus.OK);
+    return new ResponseEntity<>(veterinarianService.getAllVeterinarians(), HttpStatus.OK);
   }
 }
