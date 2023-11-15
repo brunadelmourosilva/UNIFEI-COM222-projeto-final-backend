@@ -35,9 +35,6 @@ public class Patient {
   @Column(name = "IMAGE_URL")
   private String imageUrl;
 
-  @Column(name = "PHONE")
-  private String phone;
-
   @Column(name = "DATE_OF_BIRTH")
   private OffsetDateTime dateOfBirth;
 
