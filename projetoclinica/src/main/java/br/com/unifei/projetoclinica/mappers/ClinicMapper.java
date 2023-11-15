@@ -7,7 +7,7 @@ import org.mapstruct.Mapper;
 import java.util.List;
 
 @Mapper
-public interface ClinicEntityToClinicResponse {
+public interface ClinicMapper {
 
   List<ClinicResponse> map(List<Clinic> clinic);
 }
