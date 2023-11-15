@@ -1,14 +1,13 @@
 package br.com.unifei.projetoclinica.models;
 
 import jakarta.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.UuidGenerator;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Builder
 @AllArgsConstructor
