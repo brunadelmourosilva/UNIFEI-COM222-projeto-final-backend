@@ -13,8 +13,8 @@ PLANEJAMENTO - BACK-END
   - @Email annotation
 - criação da rota de login(não autenticado);
 - implementação de segurança das demais rotas(spring security)(user autenticado);
-- tratamento de exceções;
-- validation;
 - se houver tempo:
   - upload das imagens dos pets no S3 e montagem da URL do S3 para salvar no banco(campo imageUrl);
   - envio de e-mail com SNS ou Spring e-mail quando o usuário criar uma conta + tutor;
+  - tratamento de exceções;
+  - validation;
