@@ -11,6 +11,7 @@ PLANEJAMENTO - BACK-END
   - terminar todos + validar/atualizar de acordo com os requisitos do front; 
 - criação da rota de criação do usuário(não autenticado);
   - @Email annotation
+  - validações dos requisitos 
 - criação da rota de login(não autenticado);
 - implementação de segurança das demais rotas(spring security)(user autenticado);
 - se houver tempo:
