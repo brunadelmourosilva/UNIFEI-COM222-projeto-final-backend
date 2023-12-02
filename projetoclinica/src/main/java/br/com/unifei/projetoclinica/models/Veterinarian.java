@@ -1,13 +1,14 @@
 package br.com.unifei.projetoclinica.models;
 
-import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.UuidGenerator;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 
 @Builder
 @AllArgsConstructor
@@ -19,7 +20,8 @@ public class Veterinarian {
 
     @Column(name = "VETERINARIAN_ID")
     @Id
-    @UuidGenerator
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
 
     @Column(name = "NAME")

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.List;
 
@@ -27,6 +28,11 @@ public class ProjetoclinicaApplication implements CommandLineRunner {
 
   @Autowired ConsultingRepository consultingRepository;
 
+  @Autowired RoleRepository roleRepository;
+
+  @Autowired
+  private PasswordEncoder passwordEncoder;
+
   public static void main(String[] args) {
     SpringApplication.run(ProjetoclinicaApplication.class, args);
   }
@@ -42,8 +48,7 @@ public class ProjetoclinicaApplication implements CommandLineRunner {
 
     clinicRepository.saveAll(List.of(clinicOne, clinicTwo));
 
-    //// TODO: 11/11/2023 password
-    User user = User.builder().name("Márcia").email("marcia@gmail.com").clinic(clinicOne).build();
+    User user = User.builder().name("Márcia").email("marcia@gmail.com").password(passwordEncoder.encode("123")).clinic(clinicOne).build();
 
     // relationship is bidirectional and JPA/Hibernate can manage the relationship based on the
     // annotation
@@ -51,6 +56,10 @@ public class ProjetoclinicaApplication implements CommandLineRunner {
     // clinic.getUsers().add(user);
 
     userRepository.save(user);
+
+    // ----------------------
+    Role role = Role.builder().roleName("ROLE_ADMIN").user(user).build();
+    roleRepository.save(role);
 
     // ----------------------
 

@@ -13,10 +13,9 @@ jpa:
 # https://springdoc.org/#swagger-ui-configuration
 # Specify the path of the OpenAPI documentation
 springdoc:
-    api-docs:
-        path: /api-docs
-    # Specify the path of the Swagger UI
-    # Enable or disable Swagger UI
     swagger-ui:
-        path: /swagger-ui.html
-        enabled: true
+        defaultModelsExpandDepth: -1
+        doc-expansion: none
+jwt:
+    secret: SequenciaDeCaracteresParaAssinarTokenSemWeakKeyException12345!@12345
+    expiration: 300000000

@@ -1,13 +1,13 @@
 package br.com.unifei.projetoclinica.models;
 
 import br.com.unifei.projetoclinica.enums.SchedulingStatus;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.UuidGenerator;
+import org.hibernate.annotations.GenericGenerator;
 
+import javax.persistence.*;
 import java.time.OffsetDateTime;
 
 @Builder
@@ -20,7 +20,8 @@ public class Scheduling {
 
     @Column(name = "SCHEDULING_ID")
     @Id
-    @UuidGenerator
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
 
     @Column(name = "APPOINTMENT_DATE")

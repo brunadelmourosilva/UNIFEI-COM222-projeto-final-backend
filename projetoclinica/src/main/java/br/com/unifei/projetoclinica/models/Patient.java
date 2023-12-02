@@ -1,15 +1,14 @@
 package br.com.unifei.projetoclinica.models;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.UuidGenerator;
+import org.hibernate.annotations.GenericGenerator;
 
+import javax.persistence.*;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Builder
@@ -22,7 +21,8 @@ public class Patient {
 
   @Column(name = "PATIENT_ID")
   @Id
-  @UuidGenerator
+  @GeneratedValue(generator = "uuid")
+  @GenericGenerator(name = "uuid", strategy = "uuid2")
   private String id;
 
   @Column(name = "NAME")

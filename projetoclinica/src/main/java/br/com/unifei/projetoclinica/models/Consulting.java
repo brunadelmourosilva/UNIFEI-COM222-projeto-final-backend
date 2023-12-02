@@ -1,14 +1,13 @@
 package br.com.unifei.projetoclinica.models;
 
-import jakarta.persistence.*;
-
-import java.time.OffsetDateTime;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.UuidGenerator;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+import java.time.OffsetDateTime;
 
 @Builder
 @AllArgsConstructor
@@ -20,7 +19,8 @@ public class Consulting {
 
     @Column(name = "CONSULTING_ID")
     @Id
-    @UuidGenerator
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
     
     @Column(name = "APPOINTMENT_DATE")
