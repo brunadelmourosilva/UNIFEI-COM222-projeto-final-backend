@@ -15,7 +15,6 @@ public class ClinicService {
 
   @Autowired private ClinicMapper clinicMapper;
 
-  // TODO: 11/14/2023 talvez criar interfaces para as assinaturas dos métodos
   public List<ClinicResponse> getAllClinics() {
 
     return clinicMapper.map(clinicRepository.findAll());

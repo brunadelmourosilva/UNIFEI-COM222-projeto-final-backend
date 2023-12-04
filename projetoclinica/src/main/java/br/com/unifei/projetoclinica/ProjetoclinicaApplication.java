@@ -39,7 +39,6 @@ public class ProjetoclinicaApplication implements CommandLineRunner {
 
   @Override
   public void run(String... args) throws Exception {
-    //// TODO: 11/15/2023 add factory pattern
     Clinic clinicOne =
         Clinic.builder().name("UniVet").phone("359998751").address("Rua D. A. Chaves, 315").build();
 

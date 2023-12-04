@@ -23,7 +23,6 @@ public class SchedulingService {
 
   @Autowired private SchedulingMapper schedulingMapper;
 
-  // TODO: 11/14/2023 talvez criar interfaces para as assinaturas dos métodos
   public void createScheduling(
           SchedulingRequest request, String vetId, String patientId) {
 

@@ -43,7 +43,7 @@ public class User {
     @JoinColumn(name = "CLINIC_ID")
     private Clinic clinic;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Role> roles;
 
     public List<GrantedAuthority> rolesAsGrantedAuthorities() {

@@ -19,7 +19,6 @@ public class ConsultingService {
 
   @Autowired private ConsultingMapper consultingMapper;
 
-  // TODO: 11/14/2023 talvez criar interfaces para as assinaturas dos métodos
   public void createConsulting(ConsultingRequest request, String vetId, String patientId) {
     var veterinarian =
         veterinarianRepository

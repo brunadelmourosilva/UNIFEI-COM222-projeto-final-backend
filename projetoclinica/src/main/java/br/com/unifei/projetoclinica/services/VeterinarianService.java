@@ -17,7 +17,6 @@ public class VeterinarianService {
 
   @Autowired private VeterinarianMapper veterinarianMapper;
 
-  // TODO: 11/14/2023 talvez criar interfaces para as assinaturas dos métodos
   public void createVeterinarian(VeterinarianRequest request, String clinicId) {
     var clinic =
         clinicRepository

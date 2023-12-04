@@ -60,12 +60,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/h2-console/**",
                         "/swagger-ui/**",
                         "/v3/api-docs/**",
-                        "/users/clinic/**")
+                        "/users/clinic/**",
+                        "/clinics")
                 .permitAll()
 //                .antMatchers(
-//                        "/todo")
 //                .hasRole("ROLE_ADMIN")
-//                .antMatchers(HttpMethod.POST, "/todo")
+//                .antMatchers(HttpMethod.POST, "/path-todo")
 //                .permitAll()
                 .anyRequest()
                 .authenticated();

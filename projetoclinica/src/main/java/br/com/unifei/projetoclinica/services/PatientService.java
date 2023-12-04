@@ -20,7 +20,6 @@ public class PatientService {
 
   @Autowired private PatientMapper patientMapper;
 
-  // TODO: 11/14/2023 talvez criar interfaces para as assinaturas dos métodos
   public void createPatient(
       PatientRequest request, MultipartFile file, String clinicId, String guardianId) {
 
