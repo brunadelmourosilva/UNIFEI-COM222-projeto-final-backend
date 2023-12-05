@@ -25,8 +25,7 @@ public class PatientController {
 
     patientService.createPatient(patientRequest, clinicId, guardianId);
 
-    return new ResponseEntity<>(HttpStatus.CREA
-            TED);
+    return new ResponseEntity<>(HttpStatus.CREATED);
   }
 
   @GetMapping
