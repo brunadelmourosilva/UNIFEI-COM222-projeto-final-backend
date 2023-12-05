@@ -22,7 +22,7 @@ public class PatientService {
   @Autowired private PatientMapper patientMapper;
 
   public void createPatient(
-      PatientRequest request, MultipartFile file, String clinicId, String guardianId) {
+      PatientRequest request, String clinicId, String guardianId) {
 
     var clinic =
         clinicRepository
