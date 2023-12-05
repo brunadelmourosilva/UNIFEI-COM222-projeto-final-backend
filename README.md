@@ -17,5 +17,5 @@ PLANEJAMENTO - BACK-END
 - se houver tempo:
   - upload das imagens dos pets no S3 e montagem da URL do S3 para salvar no banco(campo imageUrl);
   - envio de e-mail com SNS ou Spring e-mail quando o usuário criar uma conta + tutor;
-  - K tratamento de exceções;
+  - OK tratamento de exceções;
   - validation;
