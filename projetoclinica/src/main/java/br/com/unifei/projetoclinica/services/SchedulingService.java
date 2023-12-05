@@ -1,16 +1,15 @@
 package br.com.unifei.projetoclinica.services;
 
 import br.com.unifei.projetoclinica.dto.request.SchedulingRequest;
-import br.com.unifei.projetoclinica.dto.request.UpdateSchedulingRequest;
 import br.com.unifei.projetoclinica.dto.response.SchedulingResponse;
 import br.com.unifei.projetoclinica.dto.response.UpdateSchedulingResponse;
 import br.com.unifei.projetoclinica.enums.SchedulingStatus;
+import br.com.unifei.projetoclinica.exceptions.NotFoundException;
 import br.com.unifei.projetoclinica.mappers.SchedulingMapper;
 import br.com.unifei.projetoclinica.repositories.*;
 
 import java.util.List;
 
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,15 +30,14 @@ public class SchedulingService {
             .findById(vetId)
             .orElseThrow(
                 () ->
-                    new RuntimeException("Veterinarian not found.")); // // TODO: 11/14/2023 replace to BR
+                    new NotFoundException("Veterinarian not found."));
 
     var patient =
         patientRepository
             .findById(patientId)
             .orElseThrow(
                 () ->
-                    new RuntimeException(
-                        "Patient not found.")); // // TODO: 11/14/2023 replace to BR
+                    new NotFoundException("Patient not found."));
 
     var schedulingEntity = schedulingMapper.mapSchedulingRequestToSchedulingEntity(request);
     schedulingEntity.setVeterinarian(veterinarian);
@@ -50,8 +48,7 @@ public class SchedulingService {
 
   public UpdateSchedulingResponse updateSchedulingStatus(SchedulingStatus status, String schedulingId){
     var scheduling = schedulingRepository.findById(schedulingId).orElseThrow(
-            () ->
-                    new RuntimeException("Scheduling not found."));
+            () -> new NotFoundException("Scheduling not found."));
 
     scheduling.setStatus(status);
 

@@ -2,6 +2,7 @@ package br.com.unifei.projetoclinica.services;
 
 import br.com.unifei.projetoclinica.dto.request.ConsultingRequest;
 import br.com.unifei.projetoclinica.dto.response.ConsultingResponse;
+import br.com.unifei.projetoclinica.exceptions.NotFoundException;
 import br.com.unifei.projetoclinica.mappers.ConsultingMapper;
 import br.com.unifei.projetoclinica.repositories.ConsultingRepository;
 import br.com.unifei.projetoclinica.repositories.PatientRepository;
@@ -25,16 +26,16 @@ public class ConsultingService {
             .findById(vetId)
             .orElseThrow(
                 () ->
-                    new RuntimeException(
-                        "Veterinarian not found.")); // // TODO: 11/14/2023 replace to BR
+                    new NotFoundException(
+                        "Veterinarian not found."));
 
     var patient =
         patientRepository
             .findById(patientId)
             .orElseThrow(
                 () ->
-                    new RuntimeException(
-                        "Patient not found.")); // // TODO: 11/14/2023 replace to BR
+                    new NotFoundException(
+                        "Patient not found."));
 
     var consultingEntity = consultingMapper.mapConsultingRequestToConsultingEntity(request);
     consultingEntity.setPatient(patient);

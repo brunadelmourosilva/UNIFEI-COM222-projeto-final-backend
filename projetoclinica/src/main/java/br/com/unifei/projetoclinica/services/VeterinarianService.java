@@ -2,6 +2,7 @@ package br.com.unifei.projetoclinica.services;
 
 import br.com.unifei.projetoclinica.dto.request.VeterinarianRequest;
 import br.com.unifei.projetoclinica.dto.response.VeterinarianResponse;
+import br.com.unifei.projetoclinica.exceptions.NotFoundException;
 import br.com.unifei.projetoclinica.mappers.VeterinarianMapper;
 import br.com.unifei.projetoclinica.repositories.ClinicRepository;
 import br.com.unifei.projetoclinica.repositories.VeterinarianRepository;
@@ -23,7 +24,7 @@ public class VeterinarianService {
             .findById(clinicId)
             .orElseThrow(
                 () ->
-                    new RuntimeException("Clinic not found.")); // // TODO: 11/14/2023 replace to BR
+                    new NotFoundException("Clinic not found."));
 
     var veterinarianEntity = veterinarianMapper.mapVeterinarianRequestToVeterinarianEntity(request);
     veterinarianEntity.setClinic(clinic);

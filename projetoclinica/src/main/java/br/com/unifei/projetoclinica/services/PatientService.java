@@ -2,6 +2,7 @@ package br.com.unifei.projetoclinica.services;
 
 import br.com.unifei.projetoclinica.dto.request.PatientRequest;
 import br.com.unifei.projetoclinica.dto.response.PatientResponse;
+import br.com.unifei.projetoclinica.exceptions.NotFoundException;
 import br.com.unifei.projetoclinica.mappers.PatientMapper;
 import br.com.unifei.projetoclinica.repositories.ClinicRepository;
 import br.com.unifei.projetoclinica.repositories.GuardianRepository;
@@ -28,15 +29,14 @@ public class PatientService {
             .findById(clinicId)
             .orElseThrow(
                 () ->
-                    new RuntimeException("Clinic not found.")); // // TODO: 11/14/2023 replace to BR
+                    new NotFoundException("Clinic not found."));
 
     var guardian =
         guardianRepository
             .findById(guardianId)
             .orElseThrow(
                 () ->
-                    new RuntimeException(
-                        "Guardian not found.")); // // TODO: 11/14/2023 replace to BR
+                    new NotFoundException("Guardian not found."));
 
     var patientEntity = patientMapper.mapPatientRequestToPatientEntity(request);
     patientEntity.setClinic(clinic);

@@ -3,6 +3,8 @@ package br.com.unifei.projetoclinica.services;
 import br.com.unifei.projetoclinica.dto.request.UpdateUserRequest;
 import br.com.unifei.projetoclinica.dto.request.UserRequest;
 import br.com.unifei.projetoclinica.dto.response.UpdateUserResponse;
+import br.com.unifei.projetoclinica.exceptions.BadRequestException;
+import br.com.unifei.projetoclinica.exceptions.NotFoundException;
 import br.com.unifei.projetoclinica.mappers.UserMapper;
 import br.com.unifei.projetoclinica.models.User;
 import br.com.unifei.projetoclinica.repositories.ClinicRepository;
@@ -10,7 +12,6 @@ import br.com.unifei.projetoclinica.repositories.RoleRepository;
 import br.com.unifei.projetoclinica.repositories.UserRepository;
 import java.util.List;
 
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -35,11 +36,11 @@ public class UserService {
 
     public void createUser(UserRequest userRequest, String clinicId) {
         if(userRepository.findByEmail(userRequest.email()).isPresent()){
-            throw new RuntimeException("User already exists."); //// TODO: 12/3/2023 bad request
+            throw new BadRequestException("User already exists.");
         }
 
         var clinic = clinicRepository.findById(clinicId).orElseThrow(() ->
-                new RuntimeException("Clinic not found."));
+                new NotFoundException("Clinic not found."));
 
         var user = User.builder()
                 .name(userRequest.name())
@@ -49,8 +50,7 @@ public class UserService {
                 .build();
 
         var adminRole = roleRepository.findByRoleName("ROLE_ADMIN").orElseThrow(
-                () ->
-                        new RuntimeException("Role not found.")
+                () -> new NotFoundException("Role not found.")
         );
         user.setRoles(List.of(adminRole));
 
@@ -58,8 +58,7 @@ public class UserService {
     }
 
     public UpdateUserResponse updateUser(UpdateUserRequest updateUserRequest, String userId) {
-        var user = userRepository.findById(userId).orElseThrow(() ->
-                new RuntimeException("User not found."));
+        var user = userRepository.findById(userId).orElseThrow(() -> new NotFoundException("User not found."));
 
         user.setName(updateUserRequest.name());
         user.setEmail(updateUserRequest.email());
