@@ -42,6 +42,4 @@ public class SchedulingController {
 
     return new ResponseEntity<>(schedulingService.getAllScheduling(), HttpStatus.OK);
   }
-
-  //// TODO: 11/12/2023 maybe filter scheduling by patient name
 }

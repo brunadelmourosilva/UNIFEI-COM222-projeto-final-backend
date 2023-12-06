@@ -63,7 +63,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/users/clinic/**",
                         "/clinics")
                 .permitAll()
-//                .antMatchers(
+//                .antMatchers()
 //                .hasRole("ROLE_ADMIN")
 //                .antMatchers(HttpMethod.POST, "/path-todo")
 //                .permitAll()

@@ -41,7 +41,6 @@ public class PatientService {
     var patientEntity = patientMapper.mapPatientRequestToPatientEntity(request);
     patientEntity.setClinic(clinic);
     patientEntity.setGuardian(guardian);
-    //// TODO: 11/15/2023 save image on S3 and create an url to send to front
 
     patientRepository.save(patientEntity);
   }
