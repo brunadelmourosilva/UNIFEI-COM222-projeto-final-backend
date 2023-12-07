@@ -11,6 +11,7 @@ import br.com.unifei.projetoclinica.repositories.ClinicRepository;
 import br.com.unifei.projetoclinica.repositories.RoleRepository;
 import br.com.unifei.projetoclinica.repositories.UserRepository;
 import br.com.unifei.projetoclinica.services.UserService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/users")
+@Tag(name = "User Controller")
 public class UserController {
 
   @Autowired

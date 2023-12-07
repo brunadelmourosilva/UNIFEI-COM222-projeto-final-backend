@@ -30,8 +30,8 @@ public class OpenApiConfig {
 
     private Info metaData() {
         return new Info()
-                .title("API Clínica Veterinária")
-                .description("Documentação da API do trabalho final da disciplina COM222")
+                .title("API de Gerenciamento Para Clínicas Veterinárias")
+                .description("Documentação da API referente ao trabalho final para a disciplina COM222.")
                 .license(
                         new License()
                                 .name("Instituto de Matemática e Computação - Universidade Federal de Itajubá")

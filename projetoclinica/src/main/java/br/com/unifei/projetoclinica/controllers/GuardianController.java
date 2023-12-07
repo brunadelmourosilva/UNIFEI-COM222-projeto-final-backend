@@ -4,6 +4,8 @@ import br.com.unifei.projetoclinica.dto.request.GuardianRequest;
 import br.com.unifei.projetoclinica.dto.response.GuardianResponse;
 import br.com.unifei.projetoclinica.services.GuardianService;
 import java.util.List;
+
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/guardians")
+@Tag(name = "Guardian Controller")
 public class GuardianController {
 
   @Autowired private GuardianService guardianService;
