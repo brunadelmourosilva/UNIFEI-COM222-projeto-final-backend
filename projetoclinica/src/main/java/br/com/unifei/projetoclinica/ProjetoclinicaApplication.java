@@ -62,7 +62,7 @@ public class ProjetoclinicaApplication implements CommandLineRunner {
     // ----------------------
 
     Veterinarian veterinarian =
-        Veterinarian.builder().name("Júlia").specialty("Dogs").clinic(clinicOne).build();
+        Veterinarian.builder().name("Júlia").specialty("Cachorros").clinic(clinicOne).build();
 
     veterinarianRepository.save(veterinarian);
 

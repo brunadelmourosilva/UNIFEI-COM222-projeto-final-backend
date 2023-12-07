@@ -19,7 +19,7 @@ public class PatientController {
   public ResponseEntity<Void> createPatient(
       /** front: need to set content type as application/json for patientRequest */
       /** https://stackoverflow.com/questions/21329426/spring-mvc-multipart-request-with-json */
-      @RequestPart PatientRequest patientRequest,
+      @RequestBody PatientRequest patientRequest,
       @PathVariable String clinicId,
       @PathVariable String guardianId) {
 
