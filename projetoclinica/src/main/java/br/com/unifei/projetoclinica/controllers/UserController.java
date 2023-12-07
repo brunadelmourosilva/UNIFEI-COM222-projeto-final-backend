@@ -6,6 +6,7 @@ import br.com.unifei.projetoclinica.dto.request.UserLoginRequest;
 import br.com.unifei.projetoclinica.dto.request.UserRequest;
 import br.com.unifei.projetoclinica.dto.request.UpdateUserRequest;
 import br.com.unifei.projetoclinica.dto.response.UpdateUserResponse;
+import br.com.unifei.projetoclinica.dto.response.UserResponse;
 import br.com.unifei.projetoclinica.models.User;
 import br.com.unifei.projetoclinica.repositories.ClinicRepository;
 import br.com.unifei.projetoclinica.repositories.RoleRepository;
@@ -58,8 +59,14 @@ public class UserController {
   }
 
   @GetMapping
-  public ResponseEntity<List<UpdateUserResponse>> getAllUsers() {
+  public ResponseEntity<List<UserResponse>> getAllUsers() {
 
     return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
+  }
+
+  @GetMapping("/{userId}")
+  public ResponseEntity<UserResponse> getUserById(@PathVariable String userId) {
+
+    return new ResponseEntity<>(userService.getUserById(userId), HttpStatus.OK);
   }
 }

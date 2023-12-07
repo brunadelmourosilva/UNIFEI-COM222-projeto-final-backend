@@ -57,11 +57,12 @@ public class JWTUtil {
         }
     }
 
-    public RetornoLogin constroiRetornoLogin(String email, String token) {
+    public RetornoLogin constroiRetornoLogin(String email, String userId, String token) {
         RetornoLogin retornoLogin = new RetornoLogin();
 
         retornoLogin.setEmail(email);
         retornoLogin.setToken(token);
+        retornoLogin.setUserId(userId);
 
         return retornoLogin;
     }

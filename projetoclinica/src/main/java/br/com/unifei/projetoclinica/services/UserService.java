@@ -3,6 +3,7 @@ package br.com.unifei.projetoclinica.services;
 import br.com.unifei.projetoclinica.dto.request.UpdateUserRequest;
 import br.com.unifei.projetoclinica.dto.request.UserRequest;
 import br.com.unifei.projetoclinica.dto.response.UpdateUserResponse;
+import br.com.unifei.projetoclinica.dto.response.UserResponse;
 import br.com.unifei.projetoclinica.exceptions.BadRequestException;
 import br.com.unifei.projetoclinica.exceptions.NotFoundException;
 import br.com.unifei.projetoclinica.mappers.UserMapper;
@@ -69,11 +70,18 @@ public class UserService {
         return userMapper.mapUserEntityToUserResponse(user);
     }
 
-    public List<UpdateUserResponse> getAllUsers() {
+    public List<UserResponse> getAllUsers() {
         var user = userRepository.findAll();
 
         return userMapper.mapUserEntityToUserResponse(user);
     }
+
+  public UserResponse getUserById(String userId) {
+    var user =
+        userRepository.findById(userId).orElseThrow(() -> new NotFoundException("User not found."));
+
+    return userMapper.mapUserEntityToUserResponseUnique(user);
+  }
 
     public void deleteUser(String userId) {
         userRepository.deleteById(userId);

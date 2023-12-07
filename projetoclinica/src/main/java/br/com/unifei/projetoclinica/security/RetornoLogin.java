@@ -12,4 +12,5 @@ public class RetornoLogin {
 
     private String email;
     private String token;
+    private String userId;
 }

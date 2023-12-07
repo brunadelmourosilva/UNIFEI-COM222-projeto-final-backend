@@ -59,7 +59,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
         User user = userRepository.findByEmail(usuario.getEmail()).get();
 
-        RetornoLogin retornoLogin = jwtUtil.constroiRetornoLogin(user.getEmail(), token);
+        RetornoLogin retornoLogin = jwtUtil.constroiRetornoLogin(user.getEmail(), user.getId(), token);
 
         setHttpResponseConfigs(res, retornoLogin);
     }
