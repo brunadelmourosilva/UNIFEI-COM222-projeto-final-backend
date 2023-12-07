@@ -53,4 +53,4 @@ O diagrama de relacionamento entre tabelas abaixo oferece uma visão resumida da
 - OK criação da rota de criação do usuário(não autenticado);
 - OK criação da rota de login(não autenticado);
 - OK implementação de segurança das demais rotas(spring security)(user autenticado);
-- OK tratamento de exceções;
+- OK tratamento de exceções.
